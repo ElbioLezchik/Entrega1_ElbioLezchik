@@ -1,0 +1,42 @@
+{% extends "miembros/index.html" %}
+
+{% load bootstrap5 %}
+
+{% block cuerpo %}
+<div class="section">
+    <div class="row">
+      <div class="col">
+          {% if personas %}
+          <table class="table">
+              <thead>
+                  <th scope="col">Identificador</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Fecha de nacimiento</th>
+                  <th scope="col">Direccion</th>
+                  <th scope="col">Delefono</th>
+                  <th scope="col">Correo electronico</th>
+                  <th scope="col">Fecha de fallecimiento</th>
+              </thead>
+              {% for persona in personas %}
+              <tbody>
+                  <tr>
+                      <th scope="row">{{persona.id}} </th>
+                      <td> {{persona.nombre}} </td>
+                      <td> {{persona.apellido}} </td>
+                      <td> {{persona.fecha_de_nacimiento}} </td>
+                      <td> {{persona.direccion}} </td>
+                      <td> {{persona.telefono}} </td>
+                      <td> {{persona.correo_electronico}} </td>
+                      <td> {{persona.fecha_de_fallecimiento}} </td>
+                  </tr>  
+              </tbody>
+              {% endfor %}
+          </table>
+          {% else %}
+              <p>No hay datos cargados</p>
+          {% endif %}
+      </div>
+    </div>
+</div>
+{% endblock %}

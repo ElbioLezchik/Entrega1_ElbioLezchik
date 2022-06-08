@@ -1,0 +1,34 @@
+{% extends "miembros/index.html" %}
+
+{% load bootstrap5 %}
+
+{% block cuerpo %}
+<div class="section">
+    <div class="row">
+      <div class="col">
+          {% if mascotas %}
+          <table class="table">
+              <thead>
+                  <th scope="col">Identificador</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Tipo de mascota</th>
+                  <th scope="col">Raza</th>
+              </thead>
+              {% for mascota in mascotas %}
+              <tbody>
+                  <tr>
+                      <th scope="row">{{mascota.id}} </th>
+                      <td> {{mascota.nombre}} </td>
+                      <td> {{mascota.tipo_de_mascota}} </td>
+                      <td> {{mascota.raza}} </td>
+                  </tr>  
+              </tbody>
+              {% endfor %}
+          </table>
+          {% else %}
+              <p>No hay datos cargados</p>
+          {% endif %}
+      </div>
+    </div>
+</div>
+{% endblock %}

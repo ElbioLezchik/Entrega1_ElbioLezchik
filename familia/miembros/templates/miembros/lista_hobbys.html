@@ -1,0 +1,30 @@
+{% extends "miembros/index.html" %}
+
+{% load bootstrap5 %}
+
+{% block cuerpo %}
+<div class="section">
+    <div class="row">
+      <div class="col">
+          {% if hobbys %}
+          <table class="table">
+              <thead>
+                  <th scope="col">Identificador</th>
+                  <th scope="col">Actividad</th>
+              </thead>
+              {% for hobby in hobbys %}
+              <tbody>
+                  <tr>
+                      <th scope="row">{{hobby.id}} </th>
+                      <td> {{hobby.actividad}} </td>
+                  </tr>  
+              </tbody>
+              {% endfor %}
+          </table>
+          {% else %}
+              <p>No hay datos cargados</p>
+          {% endif %}
+      </div>
+    </div>
+</div>
+{% endblock %}

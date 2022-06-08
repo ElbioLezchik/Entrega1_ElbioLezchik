@@ -1,0 +1,74 @@
+{% load bootstrap5 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!-- <esto es la cabecera/header> -->
+<body id="page-top">
+
+  <!-- Navigation-->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{%url  'index' %}">Index</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header-->
+  <header class="bg-light">
+    <div class="container px-4 text-center">
+        <h1 class="fw-bolder"></h1>
+        <p class="lead"></p>
+    </div><br>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          {% url 'agregar_mascota' as agregar_mascota_url %}
+          {% bootstrap_button "Agregar Mascota" button_class="btn-success" button_type="link" href=agregar_mascota_url %}
+          
+          {% url 'buscar_mascota' as buscar_mascota_url %}
+          {% bootstrap_button "Buscar Mascota" button_class="btn-secondary" button_type="link" href=buscar_mascota_url %}
+        </div>
+
+        <div class="col-4">
+          {% url 'agregar_persona' as agregar_persona_url %}
+          {% bootstrap_button "Agregar Persona" button_class="btn-success" button_type="link" href=agregar_persona_url %}
+         
+          {% url 'buscar_persona' as buscar_persona_url %}
+          {% bootstrap_button "Buscar Persona" button_class="btn-secondary" button_type="link" href=buscar_persona_url %}
+        </div>
+
+        <div class="col-4">
+          {% url 'agregar_hobby' as agregar_hobby_url %}
+          {% bootstrap_button "Agregar Hobby" button_class="btn-success" button_type="link" href=agregar_hobby_url %} 
+
+          {% url 'buscar_hobby' as buscar_hobby_url %}
+          {% bootstrap_button "Buscar Hobby" button_class="btn-secondary" button_type="link" href=buscar_hobby_url %}
+        </div>
+      </div><br>
+    </div>
+
+  </header><br>
+
+  <div class="section">
+
+  {% block  cuerpo %}
+  
+  {% endblock %}
+  
+  {# Display django.contrib.messages as Bootstrap alerts #}
+  {% bootstrap_messages %}
+  </div>
+  
+</body>
+
+<!-- <esto es el pie/ footer > -->
+<footer class="bg-dark fixed-bottom">
+  <div class="container-fluid">
+    <div class="navbar-default">
+      <a class="navbar-brand" href="{%url  'index' %}"></a>
+    </div>
+  </div>
+</footer>
